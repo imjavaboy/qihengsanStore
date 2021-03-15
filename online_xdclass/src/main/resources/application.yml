@@ -1,0 +1,19 @@
+
+server:
+  port: 8089
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/online_xdclass?serverTimezone=UTC
+    username: root
+    password: 123456789g
+
+mybatis:
+  configuration:
+
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cqut.guobenqi.online_xdclass.model.entity
+

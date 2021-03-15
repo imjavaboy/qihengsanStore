@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口名称-->
+<mapper namespace="cqut.guobenqi.online_xdclass.mapper.UserMapper">
+
+    <!--注册用户-->
+    <insert id="save" parameterType="User">
+
+        insert into user (name,pwd,head_img,phone,create_time)
+        values (#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},#{headImg,jdbcType=VARCHAR},
+        #{phone,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
+
+    </insert>
+
+    <!--根据手机号和密码找用户-->
+    <select id="findByPhoneAndPwd" resultType="User">
+
+        select  * from user where phone = #{phone} and pwd = #{pwd}
+
+    </select>
+
+    <!--根据token查询-->
+    <select id="findByUserId" resultType="User">
+
+
+        select * from user where  id = #{user_id}
+
+    </select>
+    
+
+</mapper>
